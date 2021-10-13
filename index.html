@@ -200,8 +200,10 @@ $.getJSON(url, function (json) {
 
         if (json.records.length>0) {
             document.getElementById("info").style.visibility = "visibility";
-            document.getElementById("info").innerHTML = "Đã tìm thấy"
-	}
+            document.getElementById("info").innerHTML = "Xin vui lòng liên hệ (Công an hoặc Bưu điện) nơi bạn yêu cầu cấp căn cước ";
+	} else {
+            document.getElementById("info").innerHTML = "Căn cước của bạn hiện tại chưa về TP.HCM";
+        }
 
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
