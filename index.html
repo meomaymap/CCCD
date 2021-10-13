@@ -188,9 +188,11 @@ $.getJSON(url, function (json) {
         
         // ADD JSON DATA TO THE TABLE AS ROWS.
 	var ngay;
+        var timthay=0;
         for (var i = 0; i < json.records.length; i++) {
-	    
+	    timthay=1;
 	    if (json.records[i].NAME_UNSIGN == $("#id").val().toUpperCase() && json.records[i].BIRTHDAY_CONVERT == $("#name").val()) {
+            
                tr = table.insertRow(-1);
 				var tabCell = tr.insertCell(-1);
                    tabCell.innerHTML = json.records[i].NAME;
@@ -200,7 +202,7 @@ $.getJSON(url, function (json) {
                }
       	    }
 
-        if (json.records.length>0) {
+        if (timthay==1) {
             document.getElementById("info").style.visibility = "visibility";
             document.getElementById("info").innerHTML = "Xin vui lòng liên hệ (Công an hoặc Bưu điện) nơi bạn yêu cầu cấp căn cước để nhận nhận căn cước";
 	} else {
@@ -256,7 +258,17 @@ Ngày sinh
 <div id="loader"></div>
 
 <p id="re"></p>
+<!--
+<input type = "button"  id = "b1" onClick="insert_value()" value = "Insert"></input>
+-->
 
+<!--
+<input type="button" onclick="read_value()" value="Tìm kiếm" />
+<input type="button" onclick="update_value()" value="Update" />
+<input type="button" onclick="delete_value()" value="Delete" />
+
+<a href="https://docs.google.com/spreadsheets/d/1jjY0zHtAPlEggR3CJK9WOZpyM3kcf6CNzHP0uxzD_eY/edit?usp=sharing" target="_blank">Click here to open Spread Sheet </a>
+-->
 
 <div id="showData">
 
