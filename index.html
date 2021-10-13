@@ -157,8 +157,8 @@ $.getJSON(url, function (json) {
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 	
-		cell1.innerHTML = "<b>ID</b>";
-		cell2.innerHTML = "<b>Name</b>";
+		cell1.innerHTML = "<b>Họ và tên</b>";
+		cell2.innerHTML = "<b>Sinh nhật</b>";
         
         // ADD JSON DATA TO THE TABLE AS ROWS.
 	var ngay;
@@ -201,10 +201,10 @@ BƯU ĐIỆN TRUNG TÂM TÂN BÌNH TÂN PHÚ
 
 <form >
 Họ tên
-<input type = "text" name ="id" id="id">
+<input type = "text" name ="id" id="id" placeholder="Nhập họ và tên không dấu">
 Ngày sinh
-<input type = "text" name ="name" id="name">
-
+<input type = "text" name ="name" id="name" placeholder="nhập dạng yyyymmdd">
+<input type="button" onclick="read_value()" value="Tìm kiếm" />
 </form>
 
 <div id="loader"></div>
@@ -213,8 +213,9 @@ Ngày sinh
 <!--
 <input type = "button"  id = "b1" onClick="insert_value()" value = "Insert"></input>
 -->
-<input type="button" onclick="read_value()" value="Tìm kiếm" />
+
 <!--
+<input type="button" onclick="read_value()" value="Tìm kiếm" />
 <input type="button" onclick="update_value()" value="Update" />
 <input type="button" onclick="delete_value()" value="Delete" />
 
