@@ -190,9 +190,9 @@ $.getJSON(url, function (json) {
 	var ngay;
         var timthay=0;
         for (var i = 0; i < json.records.length; i++) {
-	    timthay=1;
+	    
 	    if (json.records[i].NAME_UNSIGN == $("#id").val().toUpperCase() && json.records[i].BIRTHDAY_CONVERT == $("#name").val()) {
-            
+               timthay=1;
                tr = table.insertRow(-1);
 				var tabCell = tr.insertCell(-1);
                    tabCell.innerHTML = json.records[i].NAME;
