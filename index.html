@@ -6,7 +6,7 @@
             margin:10px 0;
             border:solid 1px #333;
             padding:2px 4px;
-            font:60px Verdana;
+            font:40px Verdana;
         }
         th {
             font-weight:bold;
@@ -17,7 +17,7 @@ td {
 }
 
 input {
-   width: 100%;
+   width: 60%;
    font-size: 60px;
 }
 		
@@ -26,6 +26,11 @@ input {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
+}
+
+.info {
+   width: 60%;
+  font-size: 40px;
 }
 
 #loader {
@@ -151,6 +156,9 @@ var id1=	$("#id").val();
   
 function read_value() {
 
+if ($("#id").val()>10000000) {
+
+
 $("#re").css("visibility","hidden");
    
    document.getElementById("loader").style.visibility = "visible";
@@ -202,6 +210,10 @@ $.getJSON(url, function (json) {
 		document.getElementById("loader").style.visibility = "hidden";
 		$("#re").css("visibility","visible");
     });
+
+} else {
+   alert("Bạn phải nhập ngày tháng năm sinh theo dạng 4 số năm 2 số tháng 2 số ngày");
+}
 	}
   
   </script>
@@ -228,10 +240,11 @@ Họ tên
 <br>
 Ngày sinh
 <br>
-<input type = "text" name ="name" id="name" placeholder="nhập dạng yyyymmdd">
+<input type = "number" name ="name" id="name" placeholder="nhập dạng yyyymmdd">
 <br>
 <br>
 <input type="button" onclick="read_value()" value="Tìm kiếm" />
+<br>
 <br>
 <div id="info"></div>
 </form>
