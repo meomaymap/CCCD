@@ -11,7 +11,20 @@
         th {
             font-weight:bold;
         }
+
+
+input {
+   width: 100%;
+   font-size: 60px;
+}
 		
+.header {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
 #loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
@@ -163,7 +176,7 @@ $.getJSON(url, function (json) {
         // ADD JSON DATA TO THE TABLE AS ROWS.
 	var ngay;
         for (var i = 0; i < json.records.length; i++) {
-	
+	    
 	    if (json.records[i].NAME_UNSIGN == $("#id").val().toUpperCase() && json.records[i].BIRTHDAY_CONVERT == $("#name").val()) {
                tr = table.insertRow(-1);
 				var tabCell = tr.insertCell(-1);
@@ -173,6 +186,11 @@ $.getJSON(url, function (json) {
 				tabCell.innerHTML = ngay.substring(6, 8) + "/" + ngay.substring(4, 6) + "/" + ngay.substring(0, 4);
                }
       	    }
+
+        if (json.records.length>0) {
+            document.getElementById("info").style.visibility = "visibility";
+            document.getElementById("info").innerHTML = "Đã tìm thấy"
+	}
 
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
@@ -190,7 +208,7 @@ $.getJSON(url, function (json) {
   
 </head>
 <body>
-<div align="center">
+<div align="center" class="header">
 <h1>TRA CỨU TIẾN ĐỘ CĂN CƯỚC CÔNG DÂN</h1>
 
 BƯU ĐIỆN TRUNG TÂM TÂN BÌNH TÂN PHÚ
@@ -201,10 +219,18 @@ BƯU ĐIỆN TRUNG TÂM TÂN BÌNH TÂN PHÚ
 
 <form >
 Họ tên
+<br>
 <input type = "text" name ="id" id="id" placeholder="Nhập họ và tên không dấu">
+<br>
+<br>
 Ngày sinh
+<br>
 <input type = "text" name ="name" id="name" placeholder="nhập dạng yyyymmdd">
+<br>
+<br>
 <input type="button" onclick="read_value()" value="Tìm kiếm" />
+<br>
+<div id="info"></div>
 </form>
 
 <div id="loader"></div>
@@ -221,7 +247,10 @@ Ngày sinh
 
 <a href="https://docs.google.com/spreadsheets/d/1jjY0zHtAPlEggR3CJK9WOZpyM3kcf6CNzHP0uxzD_eY/edit?usp=sharing" target="_blank">Click here to open Spread Sheet </a>
 -->
-<div id="showData"></div>
+
+<div id="showData">
+
+</div>
 </div>
 </body>
 <html>
