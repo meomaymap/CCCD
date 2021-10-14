@@ -193,9 +193,13 @@ $.getJSON(url, function (json) {
         // ADD JSON DATA TO THE TABLE AS ROWS.
 	var ngay;
         var timthay=0;
+        var namthangngay = $("#name").val();
+        var namngaythang;
+        
+        namngaythang =  namthangngay.substring(0,4) + namthangngay.substring(6,8) + namthangngay.substring(4,6) ;
         for (var i = 0; i < json.records.length; i++) {
 	    
-	    if (json.records[i].NAME_UNSIGN == $("#id").val().toUpperCase() && json.records[i].BIRTHDAY_CONVERT == $("#name").val()) {
+	    if (json.records[i].NAME_UNSIGN == $("#id").val().toUpperCase() && (json.records[i].BIRTHDAY_CONVERT == namthangngay || json.records[i].BIRTHDAY_CONVERT == namngaythang)) {
                timthay=1;
                tr = table.insertRow(-1);
 				var tabCell = tr.insertCell(-1);
@@ -210,7 +214,7 @@ $.getJSON(url, function (json) {
             document.getElementById("info").style.visibility = "visibility";
             document.getElementById("info").innerHTML = "Đã có căn cước, xin vui lòng liên hệ (Công an hoặc Bưu điện) nơi bạn yêu cầu cấp căn cước để nhận nhận căn cước";
 	} else {
-            document.getElementById("info").innerHTML = "Căn cước của bạn hiện tại chưa về TP.HCM (Nếu không tìm thấy bạn thử nhập ngày tháng năm theo dạng 4 số năm  + 2 số ngày + 2 số tháng liên tục)";
+            document.getElementById("info").innerHTML = "Căn cước của bạn hiện tại chưa về TP.HCM, vui lòng chờ đợi, khi nào về sẽ được cập nhật lên hệ thống";
         }
 
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
